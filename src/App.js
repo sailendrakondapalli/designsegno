@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import FirstPage from "./container/FirstPage";
+import Joke from "./Joke";
+import data from "./data.js";
+class App extends React.Component{
+  constructor(){
+    super()
+    this.state={
+      todo:data
+    }
+    // this.handleChange=this.handleChange.bind(this)
+  }
+  render(){
+const hello=this.state.todo.map(item=><FirstPage item={item}/>)
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+return(
+    <div>
+      {hello}
     </div>
-  );
+  )
+  }
+  
 }
 
 export default App;
